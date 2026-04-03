@@ -65,7 +65,7 @@ function StatCard({ stat, index, inView }: { stat: StatItem; index: number; inVi
         ease: [0.16, 1, 0.3, 1],
       }}
     >
-      <span className="text-display-lg font-display text-text-primary">
+      <span className="text-display-lg font-display text-text-primary" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
         {stat.prefix}
         {count}
         {stat.suffix}
@@ -80,7 +80,7 @@ export default function Stats() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="w-full" style={{ paddingBlock: 'var(--section-gap)' }}>
+    <section className="w-full" style={{ paddingBlock: 'calc(var(--section-gap) * 1.2)' }}>
       {/* Gradient top border */}
       <div
         className="mx-auto h-px"
@@ -89,21 +89,26 @@ export default function Stats() {
           background:
             'linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%)',
           opacity: 0.4,
-          marginBottom: 'var(--section-gap)',
+          marginBottom: 'calc(var(--section-gap) * 1.2)',
         }}
       />
 
       <div
-        ref={ref}
-        className="mx-auto grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-4"
+        className="mx-auto"
         style={{
           maxWidth: 'var(--container-max)',
           paddingInline: 'var(--container-padding)',
         }}
       >
-        {STATS.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} index={i} inView={inView} />
-        ))}
+        <div
+          ref={ref}
+          className="grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-4 rounded-2xl border border-border-light py-12 px-6 md:py-14 md:px-10"
+          style={{ backgroundColor: 'var(--bg-secondary, rgba(255,255,255,0.02))' }}
+        >
+          {STATS.map((stat, i) => (
+            <StatCard key={stat.label} stat={stat} index={i} inView={inView} />
+          ))}
+        </div>
       </div>
     </section>
   );
