@@ -11,10 +11,10 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="w-full" style={{ paddingBottom: '2rem' }}>
+    <footer className="w-full py-16 md:py-20">
       {/* Gradient top border */}
       <div
-        className="mx-auto h-px mb-8"
+        className="mx-auto h-px mb-12"
         style={{
           maxWidth: 'var(--container-max)',
           background:
@@ -24,26 +24,34 @@ export default function Footer() {
       />
 
       <div
-        className="mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+        className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-start"
         style={{
           maxWidth: 'var(--container-max)',
           paddingInline: 'var(--container-padding)',
         }}
       >
-        {/* Left */}
-        <motion.p
-          className="text-body-sm text-text-tertiary text-center md:text-left"
+        {/* Left — Logo + description */}
+        <motion.div
+          className="flex flex-col gap-3 text-center md:text-left"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          &copy; 2026 原始碼智慧股份有限公司
-        </motion.p>
+          <span className="text-display-sm font-display text-text-primary tracking-tight">
+            SCI
+          </span>
+          <p className="text-body-sm text-text-tertiary leading-relaxed">
+            AI 驅動的軟體開發公司，從概念到產品的全程技術夥伴。
+          </p>
+          <p className="text-body-sm text-text-quaternary mt-1">
+            &copy; 2026 原始碼智慧股份有限公司
+          </p>
+        </motion.div>
 
         {/* Center links */}
         <motion.div
-          className="flex items-center gap-6"
+          className="flex items-center justify-center gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
