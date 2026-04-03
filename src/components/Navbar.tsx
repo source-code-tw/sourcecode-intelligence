@@ -83,7 +83,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="font-sans text-body-sm font-medium px-6 py-3 rounded-full bg-accent-gold text-white hover:bg-accent-gold-dark transition-colors duration-200"
+              className="font-sans text-body-sm font-medium px-6 py-3 rounded-full bg-text-primary text-bg-primary hover:opacity-80 transition-colors duration-200"
             >
               開始合作
             </a>
@@ -152,7 +152,7 @@ export default function Navbar() {
             ))}
             <motion.a
               href="#contact"
-              className="mt-4 font-sans text-body-md font-medium px-8 py-3 rounded-full bg-accent-gold text-white"
+              className="mt-4 font-sans text-body-md font-medium px-8 py-3 rounded-full bg-text-primary text-bg-primary hover:opacity-80"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
