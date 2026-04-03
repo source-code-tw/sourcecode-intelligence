@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react";
 
 const team = [
   {
-    name: "Sean Peng",
-    role: "CTO & Co-Founder",
-    description: "AI-Native 產品架構師。Claude Max 重度使用者，同時管理多條產品線。擅長用 AI Agent 做為核心生產力，以天為單位交付。",
+    name: "Kevin Chen",
+    role: "CEO & Co-Founder",
+    description: "連續創業者，10 年以上企業營運與商業開發經驗。專精 B2B 銷售策略、客戶成功管理與跨產業資源整合。負責公司整體營運方向、資金規劃與市場拓展。",
   },
   {
-    name: "Co-Founder",
-    role: "CEO",
-    description: "資金營運行銷，商業策略。負責客戶拓展與市場推廣。",
+    name: "Sean Peng",
+    role: "CTO & Co-Founder",
+    description: "全端技術架構師，深耕 AI-Native 開發流程。擅長以 Claude Code、Cursor 等 AI 工具驅動產品開發，同時管理多條產品線。7 年量化交易系統開發經驗，橫跨 Web、Mobile、MQL5 多技術領域。",
   },
 ];
 

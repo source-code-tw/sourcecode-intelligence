@@ -21,8 +21,8 @@ const projects = [
     description: "讓 AI Agent 記住每一筆交易的決策脈絡，用記憶進化策略",
     badges: ["已發布", "1,293 tests", "OWM 記憶架構"],
     links: [
-      { label: "GitHub", href: "https://github.com/zychenpeng/trade-memory" },
-      { label: "文件", href: "#" },
+      { label: "GitHub", href: "https://github.com/zychenpeng/tradememory-protocol" },
+      { label: "文件", href: "https://github.com/zychenpeng/tradememory-protocol#readme" },
     ],
   },
 ];
