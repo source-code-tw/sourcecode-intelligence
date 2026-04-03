@@ -157,7 +157,7 @@ export default function Recruit() {
           {/* CTA */}
           <motion.a
             href="mailto:dev@mnemox.ai?subject=AI 應用開發工程師 — 履歷投遞"
-            className="inline-flex items-center gap-2 font-sans text-body-sm font-medium px-6 py-3 rounded-full transition-colors duration-200"
+            className="inline-flex items-center gap-2 font-sans text-body-sm font-medium px-6 py-3 rounded-full transition-colors duration-200 min-h-[44px]"
             style={{
               background: 'var(--accent-gold)',
               color: '#fff',

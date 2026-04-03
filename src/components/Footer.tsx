@@ -53,7 +53,7 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="text-body-sm text-text-tertiary hover:text-text-primary transition-colors duration-200"
+              className="text-body-sm text-text-tertiary hover:text-text-primary transition-colors duration-200 py-2"
             >
               {link.label}
             </a>

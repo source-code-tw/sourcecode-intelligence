@@ -67,12 +67,12 @@ function MagneticButton({ children }: { children: React.ReactNode }) {
     <motion.button
       ref={ref}
       type="submit"
-      className="font-sans text-body-sm font-medium px-8 py-3.5 rounded-full transition-colors duration-200 cursor-pointer"
+      className="font-sans text-body-md font-semibold px-8 py-3 rounded-full transition-colors duration-200 cursor-pointer"
       style={{
         x,
         y,
-        background: 'var(--accent-gold)',
-        color: '#fff',
+        background: 'var(--text-primary)',
+        color: 'var(--bg-primary)',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -119,7 +119,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Form */}
           <motion.form
             className="flex flex-col gap-8"
@@ -134,7 +134,7 @@ export default function Contact() {
                 type="text"
                 name="name"
                 placeholder="你的名字"
-                className="w-full bg-transparent font-sans text-body-md text-text-primary pb-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary"
+                className="w-full bg-transparent font-sans text-body-md text-text-primary py-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary"
                 style={{
                   borderColor:
                     focused === 'name'
@@ -152,7 +152,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 placeholder="電子郵件"
-                className="w-full bg-transparent font-sans text-body-md text-text-primary pb-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary"
+                className="w-full bg-transparent font-sans text-body-md text-text-primary py-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary"
                 style={{
                   borderColor:
                     focused === 'email'
@@ -170,7 +170,7 @@ export default function Contact() {
                 name="message"
                 placeholder="想聊什麼？"
                 rows={4}
-                className="w-full bg-transparent font-sans text-body-md text-text-primary pb-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary resize-none"
+                className="w-full bg-transparent font-sans text-body-md text-text-primary py-3 border-b-[1.5px] outline-none transition-colors duration-300 placeholder:text-text-quaternary resize-none"
                 style={{
                   borderColor:
                     focused === 'message'

@@ -76,14 +76,14 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-sans text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+                className="font-sans text-body-sm text-text-secondary hover:text-text-primary transition-colors duration-200 py-2"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="font-sans text-body-sm font-medium px-5 py-2.5 rounded-full bg-accent-gold text-white hover:bg-accent-gold-dark transition-colors duration-200"
+              className="font-sans text-body-sm font-medium px-6 py-3 rounded-full bg-accent-gold text-white hover:bg-accent-gold-dark transition-colors duration-200"
             >
               開始合作
             </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden relative w-8 h-8 flex items-center justify-center"
+            className="md:hidden relative w-10 h-10 flex items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

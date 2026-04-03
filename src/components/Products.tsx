@@ -292,7 +292,7 @@ export default function Products() {
               <button
                 key={f.label}
                 onClick={() => setActiveFilter(f.label)}
-                className="rounded-full border px-4 py-1.5 text-sm font-medium transition-colors duration-300"
+                className="rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-300"
                 style={{
                   borderColor: isActive ? 'var(--accent-gold)' : 'var(--border-light)',
                   color: isActive ? 'var(--accent-gold)' : 'var(--text-tertiary)',
