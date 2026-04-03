@@ -59,14 +59,14 @@ export default function Hero() {
         </motion.p>
 
         {/* Headline */}
-        <h1 className="font-display mb-12 md:mb-16">
+        <h1 className="font-display mb-12 md:mb-16" style={{
+          fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+          lineHeight: 1.15,
+          letterSpacing: '-0.02em',
+          fontWeight: 700,
+        }}>
           {/* Line 1 */}
-          <span className="block overflow-hidden" style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
-            lineHeight: 1.15,
-            letterSpacing: '-0.02em',
-            fontWeight: 700,
-          }}>
+          <span className="block overflow-hidden">
             {line1Chars.map((char, i) => (
               <motion.span
                 key={`l1-${i}`}
@@ -82,12 +82,7 @@ export default function Hero() {
           </span>
 
           {/* Line 2 — same solid color, no gradient */}
-          <span className="block overflow-hidden mt-2 md:mt-3" style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
-            lineHeight: 1.15,
-            letterSpacing: '-0.02em',
-            fontWeight: 700,
-          }}>
+          <span className="block overflow-hidden mt-2 md:mt-3">
             {line2Chars.map((char, i) => (
               <motion.span
                 key={`l2-${i}`}
