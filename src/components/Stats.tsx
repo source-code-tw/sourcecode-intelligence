@@ -1,113 +1,51 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-
-interface StatItem {
-  value: number;
-  suffix: string;
-  prefix: string;
-  label: string;
-}
-
-const STATS: StatItem[] = [
-  { value: 8, suffix: '+', prefix: '', label: '產品線' },
-  { value: 3, suffix: '', prefix: '', label: 'AI Agents' },
-  { value: 5, suffix: '天', prefix: '', label: '平均交付' },
-  { value: 24, suffix: '/7', prefix: '', label: 'AI 不休息' },
+const METRICS = [
+  { value: '8+', label: '產品線', brand: 'PORTFOLIO' },
+  { value: '3', label: 'AI Agents', brand: 'WORKFORCE' },
+  { value: '5天', label: '平均交付', brand: 'VELOCITY' },
+  { value: '24/7', label: 'AI 不休息', brand: 'UPTIME' },
+  { value: '1', label: '開源套件', brand: 'OPEN SOURCE' },
 ];
 
-function useCountUp(target: number, trigger: boolean, duration = 1.6) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!trigger) return;
-
-    let start = 0;
-    const startTime = performance.now();
-
-    function step(now: number) {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      // ease-out-quart
-      const eased = 1 - Math.pow(1 - progress, 4);
-      const current = Math.round(eased * target);
-
-      if (current !== start) {
-        start = current;
-        setCount(current);
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        setCount(target);
-      }
-    }
-
-    requestAnimationFrame(step);
-  }, [trigger, target, duration]);
-
-  return count;
-}
-
-function StatCard({ stat, index, inView }: { stat: StatItem; index: number; inView: boolean }) {
-  const count = useCountUp(stat.value, inView);
-
+function MetricItem({ value, label, brand }: (typeof METRICS)[number]) {
   return (
-    <motion.div
-      className="flex flex-col items-center gap-2"
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.15,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-    >
-      <span className="text-display-lg font-display text-text-primary" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
-        {stat.prefix}
-        {count}
-        {stat.suffix}
+    <div className="flex flex-col items-center justify-center px-8 py-6 bg-white min-w-[200px]">
+      <span className="metric-value text-gray-950">{value}</span>
+      <span className="text-sm font-medium text-gray-500 mt-2">{label}</span>
+      <span className="text-[0.625rem] font-semibold text-gray-400 tracking-wider uppercase mt-2">
+        {brand}
       </span>
-      <span className="text-caption text-text-tertiary">{stat.label}</span>
-    </motion.div>
+    </div>
   );
 }
 
 export default function Stats() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  /* Duplicate items for seamless loop */
+  const doubled = [...METRICS, ...METRICS];
 
   return (
-    <section className="w-full" style={{ paddingBlock: 'calc(var(--section-gap) * 1.2)' }}>
-      {/* Gradient top border */}
-      <div
-        className="mx-auto h-px"
-        style={{
-          maxWidth: 'var(--container-max)',
-          background:
-            'linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%)',
-          opacity: 0.4,
-          marginBottom: 'calc(var(--section-gap) * 1.2)',
-        }}
-      />
-
-      <div
-        className="mx-auto"
-        style={{
-          maxWidth: 'var(--container-max)',
-          paddingInline: 'var(--container-padding)',
-        }}
-      >
+    <section className="section-padding overflow-hidden">
+      <div className="container-optimus">
+        {/* Grid variant: static metrics with 1px border dividers */}
         <div
-          ref={ref}
-          className="grid grid-cols-2 gap-y-12 gap-x-6 md:grid-cols-4 rounded-2xl border border-border-light py-12 px-6 md:py-14 md:px-10"
-          style={{ backgroundColor: 'var(--bg-secondary, rgba(255,255,255,0.02))' }}
+          className="hidden md:grid overflow-hidden rounded-xl border border-gray-200"
+          style={{
+            gridTemplateColumns: `repeat(${METRICS.length}, 1fr)`,
+            gap: 0,
+            background: 'var(--optimus-gray-200)',
+          }}
         >
-          {STATS.map((stat, i) => (
-            <StatCard key={stat.label} stat={stat} index={i} inView={inView} />
+          {METRICS.map((m) => (
+            <MetricItem key={m.label} {...m} />
           ))}
+        </div>
+
+        {/* Mobile: horizontal scrolling marquee */}
+        <div className="md:hidden overflow-hidden rounded-xl border border-gray-200">
+          <div className="flex animate-marquee-left" style={{ width: 'max-content' }}>
+            {doubled.map((m, i) => (
+              <MetricItem key={`${m.label}-${i}`} {...m} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

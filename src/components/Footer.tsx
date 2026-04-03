@@ -1,84 +1,96 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
-const FOOTER_LINKS = [
-  { label: '產品', href: '#products' },
+const PRODUCT_LINKS = [
+  { label: 'AI 全端開發', href: '#products' },
   { label: '方法論', href: '#methodology' },
+  { label: '技術棧', href: '#' },
+]
+
+const COMPANY_LINKS = [
   { label: '團隊', href: '#team' },
   { label: '招募', href: '#careers' },
-];
+  { label: '聯絡', href: '#contact' },
+]
+
+const LEGAL_LINKS = [
+  { label: '隱私政策', href: '#' },
+  { label: '服務條款', href: '#' },
+]
 
 export default function Footer() {
   return (
-    <footer className="w-full py-16 md:py-20">
-      {/* Gradient top border */}
-      <div
-        className="mx-auto h-px mb-12"
-        style={{
-          maxWidth: 'var(--container-max)',
-          background:
-            'linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%)',
-          opacity: 0.3,
-        }}
-      />
+    <footer className="border-t border-gray-200">
+      <div className="container-optimus py-16">
+        {/* 4-column grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <span className="text-lg font-semibold text-gray-950 block mb-3">
+              SCI
+            </span>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+              AI 驅動的軟體開發公司，從概念到產品的全程技術夥伴。
+            </p>
+          </div>
 
-      <div
-        className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 items-start"
-        style={{
-          maxWidth: 'var(--container-max)',
-          paddingInline: 'var(--container-padding)',
-        }}
-      >
-        {/* Left — Logo + description */}
-        <motion.div
-          className="flex flex-col gap-3 text-center md:text-left"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-display-sm font-display text-text-primary tracking-tight">
-            SCI
-          </span>
-          <p className="text-body-sm text-text-tertiary leading-relaxed">
-            AI 驅動的軟體開發公司，從概念到產品的全程技術夥伴。
-          </p>
-          <p className="text-body-sm text-text-quaternary mt-1">
+          {/* Product */}
+          <div>
+            <h4 className="text-xs font-medium tracking-wider text-gray-400 uppercase mb-4">
+              產品
+            </h4>
+            <ul className="space-y-2">
+              {PRODUCT_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-gray-500 hover:text-gray-950 transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-xs font-medium tracking-wider text-gray-400 uppercase mb-4">
+              公司
+            </h4>
+            <ul className="space-y-2">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-gray-500 hover:text-gray-950 transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-xs font-medium tracking-wider text-gray-400 uppercase mb-4">
+              法律
+            </h4>
+            <ul className="space-y-2">
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-gray-500 hover:text-gray-950 transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-200">
+          <p className="text-sm text-gray-400">
             &copy; 2026 原始碼智慧股份有限公司
           </p>
-        </motion.div>
-
-        {/* Center links */}
-        <motion.div
-          className="flex items-center justify-center gap-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          {FOOTER_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-body-sm text-text-tertiary hover:text-text-primary transition-colors duration-200 py-2"
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
-
-        {/* Right */}
-        <motion.p
-          className="text-body-sm text-text-quaternary text-center md:text-right"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Built with AI. Powered by humans.
-        </motion.p>
+          <div className="flex items-center gap-2 text-sm text-gray-400">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            All systems operational
+          </div>
+        </div>
       </div>
     </footer>
-  );
+  )
 }

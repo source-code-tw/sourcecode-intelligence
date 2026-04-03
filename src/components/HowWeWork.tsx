@@ -1,119 +1,90 @@
-'use client';
-
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-
-/* ──────────────────────────────────────────
-   Data
-   ────────────────────────────────────────── */
-
-const steps = [
+const STEPS = [
   {
-    num: '01',
-    title: '需求分析',
-    desc: 'CEO 定義產品方向，AI Agent 做市場調研驗證',
+    numeral: 'I',
+    title: '需求定義',
+    description: 'CEO 定義方向，AI 驗證市場。在寫第一行 code 前，先確認這件事值得做。',
   },
   {
-    num: '02',
-    title: '架構設計',
-    desc: 'CTO 設計系統架構，AI Agent 產出技術方案',
+    numeral: 'II',
+    title: '架構開發',
+    description: 'CTO 架構設計，3 AI Agents 平行開發不同模組。24/7 不間斷。',
   },
   {
-    num: '03',
-    title: '平行開發',
-    desc: '3 位 AI Agent 同時開發不同模組，24/7 不間斷',
-  },
-  {
-    num: '04',
+    numeral: 'III',
     title: '交付上線',
-    desc: '自動測試、部署、監控，以天為單位迭代',
+    description: '自動測試部署，以天為單位迭代。不是月，是天。',
   },
 ];
 
-/* ──────────────────────────────────────────
-   Main component
-   ────────────────────────────────────────── */
+const CODE_BLOCK = `// deploy.ts
+import { agents } from "@sourcecode/core";
+
+const pipeline = agents.create({
+  architect: "claude-opus",
+  developers: 3,
+  qa: "automated",
+});
+
+await pipeline.deploy({
+  target: "production",
+  tests: true,
+  monitoring: true,
+});
+
+// Average time: 5 days
+console.log("shipped.");`;
 
 export default function HowWeWork() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' });
-
   return (
-    <section ref={sectionRef} className="section-dark py-20 md:py-32 relative overflow-hidden">
-      <div
-        className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]"
-      >
-        {/* Header */}
-        <div className="mb-20 max-w-2xl">
-          <motion.h2
-            className="font-display text-display-md gradient-text-dark mb-6"
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            AI-Native 開發模式
-          </motion.h2>
-          <motion.p
-            className="text-body-md text-text-on-dark-secondary"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
-            不是用 AI 輔助開發，而是讓 AI Agent 成為團隊核心成員
-          </motion.p>
-        </div>
+    <section className="bg-section-dark section-padding">
+      <div className="container-optimus relative z-10">
+        {/* Section header */}
+        <p className="section-label section-label-dark mb-6">方法論</p>
+        <h2 className="text-section-title mb-16">
+          <span className="text-white">三個步驟。</span>
+          <br />
+          <span className="text-gray-400">無限可能。</span>
+        </h2>
 
-        {/* Timeline steps */}
-        <div className="relative">
-          {/* Connecting line */}
-          <motion.div
-            className="absolute left-[19px] top-0 bottom-0 w-px origin-top lg:hidden"
-            style={{ background: 'linear-gradient(to bottom, var(--accent-gold), transparent)' }}
-            initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          {/* Desktop horizontal line */}
-          <motion.div
-            className="absolute top-[19px] left-0 right-0 h-px origin-left hidden lg:block"
-            style={{ background: 'linear-gradient(to right, var(--accent-gold), transparent)' }}
-            initial={{ scaleX: 0 }}
-            animate={inView ? { scaleX: 1 } : {}}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-10">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                className="relative pl-14 lg:pl-0"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.4 + i * 0.15,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left: Steps */}
+          <div>
+            {STEPS.map((step, i) => (
+              <div
+                key={step.numeral}
+                className={`py-8 ${i < STEPS.length - 1 ? 'border-b border-gray-800' : ''}`}
               >
-                {/* Step number circle */}
-                <div
-                  className="absolute left-0 top-0 lg:relative lg:mb-6 w-[38px] h-[38px] rounded-full border border-accent-gold/30 flex items-center justify-center"
-                  style={{ background: 'var(--bg-dark)' }}
-                >
-                  <span className="font-mono text-xs text-accent-gold">
-                    {step.num}
+                <div className="flex items-baseline gap-6">
+                  <span className="text-sm font-semibold text-gray-500 min-w-[2rem]">
+                    {step.numeral}
                   </span>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-base text-gray-400 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="font-display text-xl text-text-on-dark font-semibold mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-base text-text-on-dark-secondary leading-relaxed">
-                  {step.desc}
-                </p>
-              </motion.div>
+              </div>
             ))}
+          </div>
+
+          {/* Right: Code block */}
+          <div className="rounded-xl border border-gray-800 bg-gray-950 overflow-hidden">
+            {/* Title bar */}
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-800">
+              <span className="w-3 h-3 rounded-full bg-gray-700" />
+              <span className="w-3 h-3 rounded-full bg-gray-700" />
+              <span className="w-3 h-3 rounded-full bg-gray-700" />
+              <span className="ml-3 text-xs text-gray-500 font-mono">deploy.ts</span>
+            </div>
+            {/* Code */}
+            <pre className="p-5 overflow-x-auto text-sm leading-relaxed font-mono text-gray-300">
+              <code>{CODE_BLOCK}</code>
+            </pre>
           </div>
         </div>
       </div>

@@ -1,0 +1,520 @@
+/**
+ * OPTIMUS COMPONENT STYLES
+ * Specific component implementations
+ */
+
+/* ============================================
+   5. SECTION LABEL (— Capabilities)
+   ============================================ */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--label-gap);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  color: var(--label-color);
+  letter-spacing: var(--label-tracking);
+  text-transform: capitalize;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: var(--label-dash-width);
+  height: var(--label-dash-height);
+  background-color: var(--label-dash-color);
+}
+
+/* Dark variant */
+.section-label--dark {
+  --label-color: var(--color-gray-400);
+  --label-dash-color: var(--color-gray-600);
+}
+
+/* ============================================
+   6. HERO SECTION
+   ============================================ */
+
+.hero {
+  position: relative;
+  padding-top: calc(var(--navbar-height) + var(--section-padding-y));
+  padding-bottom: var(--section-padding-y);
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.hero__title {
+  font-size: var(--hero-title-size);
+  font-weight: var(--hero-title-weight);
+  line-height: var(--hero-title-leading);
+  letter-spacing: var(--hero-title-tracking);
+  color: var(--color-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__description {
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+  color: var(--body-color);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   7. FEATURE CARDS (01, 02, 03, 04)
+   ============================================ */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  position: relative;
+  padding: 2.5rem;
+  background: var(--color-white);
+}
+
+/* Border separators using pseudo-elements */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--color-border);
+}
+
+/* Remove borders on first row and first column */
+.feature-card:nth-child(-n+2)::before {
+  display: none;
+}
+
+.feature-card:nth-child(odd)::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .feature-card::after {
+    display: none !important;
+  }
+  .feature-card:first-child::before {
+    display: none;
+  }
+}
+
+.feature-card__number {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-gray-400);
+  margin-bottom: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.feature-card__icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  color: var(--color-gray-700);
+}
+
+.feature-card__title {
+  font-size: var(--card-title-size);
+  font-weight: var(--card-title-weight);
+  line-height: var(--card-title-leading);
+  color: var(--color-foreground);
+  margin-bottom: 0.75rem;
+}
+
+.feature-card__description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-gray-500);
+}
+
+/* ============================================
+   8. DARK SECTION (Process)
+   ============================================ */
+
+.section-dark {
+  position: relative;
+  background-color: var(--color-gray-950);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+/* Subtle radial gradient overlay */
+.section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Dark section typography */
+.section-dark .section-title {
+  color: var(--color-white);
+}
+
+.section-dark .section-description {
+  color: var(--color-gray-400);
+}
+
+/* ============================================
+   9. METRICS / NUMBERS
+   ============================================ */
+
+.metric {
+  text-align: center;
+}
+
+.metric__value {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric__value--dark {
+  color: var(--color-white);
+}
+
+.metric__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-500);
+  margin-top: 0.5rem;
+}
+
+.metric__label--dark {
+  color: var(--color-gray-400);
+}
+
+/* Inline metrics (in hero) */
+.metrics-inline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.metrics-inline__item {
+  padding: 1.5rem 1rem;
+  background: var(--color-white);
+  text-align: center;
+}
+
+.metrics-inline__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  line-height: 1.2;
+}
+
+.metrics-inline__label {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  margin-top: 0.25rem;
+}
+
+.metrics-inline__brand {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--color-gray-400);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   10. NOISE TEXTURE OVERLAY
+   ============================================ */
+
+/**
+ * Noise texture implementation using CSS filter
+ * Can be applied to any section for subtle texture
+ */
+
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Alternative: Using background-image with tiny repeating noise */
+.noise-overlay-alt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/noise.png'); /* 100x100 tileable noise texture */
+  background-repeat: repeat;
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+/* Grain animation (optional) */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.noise-animated::after {
+  animation: grain 8s steps(10) infinite;
+}
+
+/* ============================================
+   11. BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  line-height: 1.5;
+  text-decoration: none;
+  border-radius: var(--btn-radius);
+  transition: var(--btn-transition);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gray-950);
+  outline-offset: 2px;
+}
+
+/* Primary Button (Filled/Dark) */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-bg-hover);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-bg-hover);
+  border-color: var(--btn-secondary-border-hover);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+}
+
+/* Icon-only button */
+.btn-icon {
+  padding: 0.625rem;
+  aspect-ratio: 1;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  padding: var(--navbar-padding-y) var(--navbar-padding-x);
+  background: var(--navbar-bg);
+  backdrop-filter: blur(var(--navbar-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--navbar-backdrop-blur));
+  border-bottom: 1px solid var(--navbar-border);
+  z-index: var(--navbar-z-index);
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Scrolled state - add via JS when scrollY > 10 */
+.navbar--scrolled {
+  background: var(--navbar-bg-scrolled);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-x);
+}
+
+.navbar__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  text-decoration: none;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar__link {
+  font-size: var(--nav-link-size);
+  font-weight: var(--nav-link-weight);
+  color: var(--nav-link-color);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.navbar__link:hover {
+  color: var(--nav-link-color-hover);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+.section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.section-sm {
+  padding-top: var(--section-padding-y-sm);
+  padding-bottom: var(--section-padding-y-sm);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
