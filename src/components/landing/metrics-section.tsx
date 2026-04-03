@@ -11,7 +11,7 @@ const projects = [
     description: "在寫第一行 code 前，用 AI 掃描市場確認你的點子是否值得做",
     badges: ["已發布在 PyPI", "GitHub 開源", "MCP Protocol"],
     links: [
-      { label: "GitHub", href: "https://github.com/zychenpeng/idea-reality-mcp" },
+      { label: "GitHub", href: "https://github.com/mnemox-ai/idea-reality-mcp" },
       { label: "PyPI", href: "https://pypi.org/project/idea-reality-mcp/" },
     ],
   },
@@ -21,8 +21,8 @@ const projects = [
     description: "讓 AI Agent 記住每一筆交易的決策脈絡，用記憶進化策略",
     badges: ["已發布", "1,293 tests", "OWM 記憶架構"],
     links: [
-      { label: "GitHub", href: "https://github.com/zychenpeng/tradememory-protocol" },
-      { label: "文件", href: "https://github.com/zychenpeng/tradememory-protocol#readme" },
+      { label: "GitHub", href: "https://github.com/mnemox-ai/tradememory-protocol" },
+      { label: "文件", href: "https://github.com/mnemox-ai/tradememory-protocol#readme" },
     ],
   },
 ];
