@@ -83,7 +83,7 @@ export default function Navbar() {
             ))}
             <a
               href="#contact"
-              className="font-sans text-body-sm font-medium px-6 py-3 rounded-full bg-text-primary text-bg-primary hover:opacity-80 transition-colors duration-200"
+              className="font-sans text-body-sm font-medium px-6 py-3 rounded-full bg-text-primary text-bg-primary hover:opacity-80 transition-opacity duration-200"
             >
               開始合作
             </a>
