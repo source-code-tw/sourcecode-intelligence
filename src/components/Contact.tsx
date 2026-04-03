@@ -189,11 +189,14 @@ export default function Contact() {
 
           {/* Contact info */}
           <motion.div
-            className="flex flex-col gap-8 lg:pt-2"
+            className="flex flex-col gap-8 md:pt-2"
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
+            <h3 className="text-body-lg font-semibold text-text-primary">
+              聯絡資訊
+            </h3>
             {CONTACT_INFO.map((item, i) => (
               <motion.div
                 key={item.label}
