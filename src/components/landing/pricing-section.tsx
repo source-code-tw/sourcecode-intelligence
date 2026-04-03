@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const team = [
   {
-    name: "Kevin Chen",
+    name: "Kevin",
     role: "CEO & Co-Founder",
     description: "連續創業者，10 年以上企業營運與商業開發經驗。專精 B2B 銷售策略、客戶成功管理與跨產業資源整合。負責公司整體營運方向、資金規劃與市場拓展。",
   },
