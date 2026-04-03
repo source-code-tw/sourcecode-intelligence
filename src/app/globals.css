@@ -1,26 +1,341 @@
 @import "tailwindcss";
 
+/* ========================================
+   Design Tokens — SourceCode Intelligence
+   Warm Minimal + Atmospheric Tech
+   ======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --bg-primary: #F8F7F3;
+  --bg-secondary: #F0EFE9;
+  --bg-dark: #0A0A08;
+  --bg-dark-secondary: #141410;
+  --bg-card: #FFFFFF;
+  --bg-card-dark: #1A1A16;
+
+  /* Text */
+  --text-primary: #1A1A18;
+  --text-secondary: #5A5A54;
+  --text-tertiary: #8A8A82;
+  --text-quaternary: #B0B0A8;
+  --text-on-dark: #EDECE8;
+  --text-on-dark-secondary: #A0A098;
+
+  /* Accent */
+  --accent-gold: #C8A55C;
+  --accent-gold-light: #E8D9A8;
+  --accent-gold-dark: #9A7D3A;
+  --accent-blue-dark: #1a1a2e;
+
+  /* Border */
+  --border-light: rgba(26, 26, 24, 0.08);
+  --border-medium: rgba(26, 26, 24, 0.15);
+  --border-dark: rgba(237, 236, 232, 0.08);
+  --border-dark-medium: rgba(237, 236, 232, 0.15);
+
+  /* Spacing */
+  --section-gap: clamp(5rem, 8vw, 10rem);
+  --container-max: 1280px;
+  --container-padding: clamp(1.5rem, 4vw, 3rem);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
 }
+
+/* ========================================
+   Tailwind Theme Extension
+   ======================================== */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-dark-secondary: var(--bg-dark-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-dark: var(--bg-card-dark);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-quaternary: var(--text-quaternary);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-text-on-dark-secondary: var(--text-on-dark-secondary);
+
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-light: var(--accent-gold-light);
+  --color-accent-gold-dark: var(--accent-gold-dark);
+  --color-accent-blue-dark: var(--accent-blue-dark);
+
+  --color-border-light: var(--border-light);
+  --color-border-medium: var(--border-medium);
+
+  --font-display: var(--font-syne);
+  --font-sans: var(--font-space-grotesk);
+  --font-chinese: var(--font-noto-sans-tc);
+  --font-mono: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ========================================
+   Base Styles
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+::selection {
+  background: rgba(200, 165, 92, 0.3);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   Typography Scale
+   ======================================== */
+
+.text-display-xl {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+.text-display-lg {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display-md {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.text-display-sm {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.text-body-md {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-size: clamp(0.875rem, 1.2vw, 0.9375rem);
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ========================================
+   Magnetic Button
+   ======================================== */
+
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* ========================================
+   Gradient text
+   ======================================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 50%, var(--text-primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-dark {
+  background: linear-gradient(135deg, var(--text-on-dark) 0%, var(--accent-gold) 50%, var(--text-on-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Section Dark Mode
+   ======================================== */
+
+.section-dark {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+}
+
+.section-dark .text-secondary {
+  color: var(--text-on-dark-secondary);
+}
+
+/* ========================================
+   Loading Screen
+   ======================================== */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 2px;
+  background: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  transform-origin: left;
+}
+
+/* ========================================
+   Marquee
+   ======================================== */
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ========================================
+   3D Card Tilt
+   ======================================== */
+
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.tilt-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-quaternary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ========================================
+   Lenis
+   ======================================== */
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
