@@ -1,24 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function AnimatedSphere() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     const chars = "░▒▓█▀▄▌▐│─┤├┴┬╭╮╰╯";
     let time = 0;
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
@@ -33,16 +41,15 @@ export function AnimatedSphere() {
 
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const radius = Math.min(rect.width, rect.height) * 0.525;
+      const radius = Math.min(rect.width, rect.height) * 0.4;
 
       ctx.font = "12px monospace";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 
-      const step = 12;
       const points: { x: number; y: number; z: number; char: string }[] = [];
 
-      // Generate sphere points
+      // Generate sphere points with ASCII characters
       for (let phi = 0; phi < Math.PI * 2; phi += 0.15) {
         for (let theta = 0; theta < Math.PI; theta += 0.15) {
           const x = Math.sin(theta) * Math.cos(phi + time * 0.5);
@@ -85,19 +92,20 @@ export function AnimatedSphere() {
       frameRef.current = requestAnimationFrame(render);
     };
 
-    render();
+    frameRef.current = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(frameRef.current);
     };
-  }, []);
+  }, [mounted]);
 
   return (
     <canvas
       ref={canvasRef}
       className="w-full h-full"
       style={{ display: "block" }}
+      aria-hidden="true"
     />
   );
 }

@@ -13,9 +13,24 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section 
+      id="hero"
+      aria-label="原始碼智慧 - AI-Native 軟體開發工作室首頁"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+    >
+      {/* Hidden SEO content for AI crawlers */}
+      <div className="sr-only">
+        <h1>原始碼智慧股份有限公司 - SourceCode Intelligence</h1>
+        <p>
+          原始碼智慧是台灣領先的 AI-Native 軟體開發工作室。我們使用 Claude Code、Cursor 等 AI Agent 作為核心生產力，
+          能在 5 天內交付 MVP，專精於 SaaS 開發、Mobile App、AI 應用整合與客製化軟體。
+          我們的服務包括：SaaS 平台開發、跨平台行動應用開發（Flutter）、AI 應用整合（GPT、Claude API、MCP 協議）、
+          以及客製化軟體開發（ERP、CRM、內部工具）。
+          聯絡方式：Email - ArcTeaOffice@gmail.com，GitHub - github.com/ArcTeaOffice，地點 - 台灣台北。
+        </p>
+      </div>
       {/* Animated sphere background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-40 pointer-events-none">
+      <div className="absolute right-[-100px] lg:right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] opacity-50 pointer-events-none z-0">
         <AnimatedSphere />
       </div>
       

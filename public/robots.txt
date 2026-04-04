@@ -1,0 +1,39 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sourcecode-intelligence.vercel.app
+
+# Sitemaps
+Sitemap: https://sourcecode-intelligence.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+
+# Allow AI crawlers for GEO/AEO optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Perplexitybot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Block specific paths if needed
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/

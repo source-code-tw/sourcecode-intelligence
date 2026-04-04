@@ -91,6 +91,24 @@
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  
+  /* Hide focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @layer utilities {
@@ -104,21 +122,25 @@
   }
   
   .marquee {
+    display: flex;
     animation: marquee 30s linear infinite;
+    will-change: transform;
   }
   
   .marquee-reverse {
+    display: flex;
     animation: marquee-reverse 25s linear infinite;
+    will-change: transform;
   }
 
   @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
   }
   
   @keyframes marquee-reverse {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0%); }
   }
   
   .line-reveal {
@@ -188,4 +210,5 @@
       linear-gradient(135deg, var(--foreground) 25%, transparent 25%, transparent 50%, var(--foreground) 50%, var(--foreground) 75%, transparent 75%) border-box;
     background-size: 100% 100%, 8px 8px;
   }
+  
 }

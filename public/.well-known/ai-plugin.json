@@ -1,0 +1,16 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "原始碼智慧 SourceCode Intelligence",
+  "name_for_model": "sourcecode_intelligence",
+  "description_for_human": "AI-Native 軟體開發工作室 - 從概念到產品，以天為單位交付",
+  "description_for_model": "原始碼智慧是台灣的 AI-Native 軟體開發工作室。提供 SaaS 開發、Mobile App 開發、AI 應用整合、客製化軟體服務。使用 Claude Code、Cursor 等 AI Agent，5天內交付 MVP。聯絡：ArcTeaOffice@gmail.com",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "https://sourcecode-intelligence.vercel.app/logo.png",
+  "contact_email": "ArcTeaOffice@gmail.com",
+  "legal_info_url": "https://sourcecode-intelligence.vercel.app/legal"
+}

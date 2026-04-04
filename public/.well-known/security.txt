@@ -1,0 +1,4 @@
+# 原始碼智慧 Security Contact
+Contact: mailto:ArcTeaOffice@gmail.com
+Preferred-Languages: zh-TW, en
+Canonical: https://sourcecode.tw/.well-known/security.txt

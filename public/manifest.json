@@ -1,0 +1,27 @@
+{
+  "name": "原始碼智慧 SourceCode Intelligence",
+  "short_name": "原始碼智慧",
+  "description": "AI-Native 軟體開發工作室 - 從概念到產品，以天為單位交付",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "developer tools"],
+  "lang": "zh-TW",
+  "dir": "ltr"
+}

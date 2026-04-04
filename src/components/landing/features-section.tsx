@@ -233,29 +233,36 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
   }, []);
 
   return (
-    <div
+    <article
       ref={cardRef}
       className={`group relative transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
+      itemScope
+      itemType="https://schema.org/Service"
+      itemProp="itemListElement"
     >
+      <meta itemProp="position" content={String(index + 1)} />
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 lg:py-20 border-b border-foreground/10">
         {/* Number */}
         <div className="shrink-0">
-          <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
+          <span className="font-mono text-sm text-muted-foreground" aria-hidden="true">{feature.number}</span>
         </div>
         
         {/* Content */}
         <div className="flex-1 grid lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-3xl lg:text-4xl font-display mb-4 group-hover:translate-x-2 transition-transform duration-500">
+            <h3 itemProp="name" className="text-3xl lg:text-4xl font-display mb-4 group-hover:translate-x-2 transition-transform duration-500">
               {feature.title}
             </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            <p itemProp="description" className="text-lg text-muted-foreground leading-relaxed mb-4">
               {feature.description}
             </p>
             <p className="text-sm font-mono text-muted-foreground">
+              <span itemProp="provider" itemScope itemType="https://schema.org/Organization">
+                <meta itemProp="name" content="原始碼智慧" />
+              </span>
               {feature.tech}
             </p>
           </div>
@@ -268,7 +275,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -293,7 +300,12 @@ export function FeaturesSection() {
       id="services"
       ref={sectionRef}
       className="relative py-24 lg:py-32"
+      aria-labelledby="services-heading"
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
+      <meta itemProp="numberOfItems" content="4" />
+      <meta itemProp="name" content="原始碼智慧服務項目" />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
@@ -302,6 +314,7 @@ export function FeaturesSection() {
             服務項目
           </span>
           <h2
+            id="services-heading"
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}

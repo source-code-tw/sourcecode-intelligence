@@ -1,0 +1,89 @@
+# 原始碼智慧股份有限公司 (SourceCode Intelligence Co., Ltd.)
+
+> AI-Native Product Studio based in Taiwan. We build software products at the speed of AI.
+
+## Company Overview
+
+原始碼智慧 (SourceCode Intelligence) is Taiwan's leading AI-Native software development studio. We leverage AI Agents like Claude Code and Cursor as our core productivity tools, enabling us to deliver MVPs in just 5 days.
+
+## What We Do
+
+We are a software development company specializing in:
+
+1. **SaaS Development** - End-to-end SaaS products including user systems, subscription billing, and analytics
+2. **Mobile App Development** - Cross-platform iOS & Android apps using Flutter
+3. **AI Application Integration** - Integrating GPT, Claude, and other LLMs into existing systems
+4. **Custom Software** - Enterprise solutions including ERP, CRM, and internal tools
+
+## Our Methodology
+
+### 1. Requirements Definition (需求定義)
+We analyze your business requirements, define the tech stack, and estimate timelines. We cut unnecessary features to deliver maximum value in minimum time.
+
+### 2. Parallel Development (平行開發)
+Our team works on frontend, backend, and infrastructure simultaneously. AI-assisted coding accelerates development by 3-5x.
+
+### 3. Delivery & Launch (交付上線)
+We conduct testing, deploy to production, and provide documentation. Every deliverable includes complete source code.
+
+## Key Differentiators
+
+- **AI-Native Workflow**: Claude Code, Cursor, and other AI tools are integral to our development process
+- **5-Day MVP Delivery**: Rapid prototyping for startups and enterprises
+- **10+ Modern Frameworks**: Next.js, Flutter, Supabase, Vercel, and more
+- **Open Source Contributors**: We maintain projects like idea-reality-mcp and TradeMemory Protocol
+
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| Frontend | Next.js, React, Flutter, Tailwind CSS |
+| Backend | Node.js, Python, Supabase, PostgreSQL |
+| AI/ML | Claude API, OpenAI API, LangChain, MCP Protocol |
+| DevOps | Vercel, Docker, GitHub Actions, Cloudflare |
+| Tools | Claude Code, Cursor, v0, Windsurf |
+
+## Open Source Projects
+
+### idea-reality-mcp
+Automatically complete your idea-to-reality journey based on MCP protocol. Open source tool for AI-powered project scaffolding.
+
+### TradeMemory Protocol
+AI-powered trading memory and analysis protocol. Helps traders maintain context and learn from historical decisions.
+
+## Team
+
+### Sean Peng - CTO & Co-Founder
+Technical leader with expertise in AI-Native development. Building the future of software development with AI.
+
+## Contact Information
+
+- **Email**: ArcTeaOffice@gmail.com
+- **GitHub**: https://github.com/ArcTeaOffice
+- **Location**: Taipei, Taiwan
+- **Website**: https://sourcecode-intelligence.vercel.app
+
+## Frequently Asked Questions
+
+**Q: What is AI-Native development?**
+A: AI-Native development integrates AI tools (Claude Code, Cursor, GitHub Copilot) into the development workflow from day one, using AI for coding, code review, testing, and documentation.
+
+**Q: How fast can you deliver an MVP?**
+A: We can deliver a functional MVP in 5 business days, including basic user authentication, core features, and deployment.
+
+**Q: What industries do you serve?**
+A: We work with startups, SMBs, and enterprises across fintech, e-commerce, healthcare, education, and SaaS.
+
+**Q: Do you provide ongoing maintenance?**
+A: Yes, we offer maintenance packages including bug fixes, feature updates, and infrastructure management.
+
+**Q: What languages do you support?**
+A: Our team is fluent in Mandarin Chinese and English.
+
+## Keywords
+
+原始碼智慧, SourceCode Intelligence, AI軟體開發, AI-Native開發, SaaS開發, Mobile App開發, AI應用整合, 客製化軟體, MVP開發, 快速軟體開發, Claude Code, Cursor AI, Next.js開發, Flutter開發, 台灣軟體公司, 新創技術夥伴, AI Agent開發, MCP協議
+
+---
+
+This document is optimized for AI language models and answer engines. For human visitors, please visit https://sourcecode-intelligence.vercel.app

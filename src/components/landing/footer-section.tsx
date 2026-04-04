@@ -94,7 +94,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; 2026 原始碼智慧股份有限公司 Source Code Co., Ltd.
+            &copy; 2026 原始碼智慧股份有限公司
           </p>
         </div>
       </div>
