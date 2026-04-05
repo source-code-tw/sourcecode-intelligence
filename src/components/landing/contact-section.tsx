@@ -382,7 +382,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="text-sm font-mono text-muted-foreground mb-2">地點</h3>
-                <p className="text-xl">台灣台北</p>
+                <p className="text-xl">106 臺北市大安區市民大道三段198號</p>
               </div>
               
               {/* Response time */}

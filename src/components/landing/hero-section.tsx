@@ -26,7 +26,7 @@ export function HeroSection() {
           能在 5 天內交付 MVP，專精於 SaaS 開發、Mobile App、AI 應用整合與客製化軟體。
           我們的服務包括：SaaS 平台開發、跨平台行動應用開發（Flutter）、AI 應用整合（GPT、Claude API、MCP 協議）、
           以及客製化軟體開發（ERP、CRM、內部工具）。
-          聯絡方式：Email - ArcTeaOffice@gmail.com，GitHub - github.com/ArcTeaOffice，地點 - 台灣台北。
+          聯絡方式：Email - ArcTeaOffice@gmail.com，GitHub - github.com/ArcTeaOffice，地址 - 106臺北市大安區市民大道三段198號。
         </p>
       </div>
       {/* Animated sphere background */}

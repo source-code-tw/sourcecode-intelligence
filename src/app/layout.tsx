@@ -141,8 +141,10 @@ export default function RootLayout({
         ],
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Taipei',
-          addressRegion: 'Taiwan',
+          streetAddress: '市民大道三段198號',
+          addressLocality: '大安區',
+          addressRegion: '台北市',
+          postalCode: '106',
           addressCountry: 'TW',
         },
         contactPoint: {
