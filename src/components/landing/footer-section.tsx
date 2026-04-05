@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { AnimatedWave } from "./animated-wave";
+import { Logo } from "./logo";
 
 const footerLinks = {
   服務: [
@@ -44,7 +45,7 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">原始碼智慧</span>
+                <Logo size="lg" />
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">

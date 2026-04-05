@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Logo } from "./logo";
 
 const navLinks = [
   { name: "服務", href: "#services" },
@@ -125,9 +126,7 @@ export function Navigation() {
               aria-label="原始碼智慧 - 回到首頁"
               onClick={(e) => scrollToSection(e, '#hero')}
             >
-              <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl" : "text-2xl"}`}>
-                原始碼智慧
-              </span>
+              <Logo size={isScrolled ? "sm" : "md"} />
             </a>
 
             {/* Desktop Navigation */}
